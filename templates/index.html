@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+        DGR Match
+    </title>
+    <script src="https://kit.fontawesome.com/14b65364ed.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<style>
+  body{
+    font-size: xx-large;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  form {
+    text-align: center;
+    margin-left: 32%;
+  }
+  form:hover{
+    transform: scale(1.02);
+}
+.card {
+  transition: 0.3s;
+  width: 40%;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.box {
+  background-color: white;
+  box-shadow: 20 20px 50px black; 
+  border-color: black;
+  border-radius: 20px;
+  padding: 20px;
+}
+#box2 {
+  padding: 10px;
+}
+button,select {
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding : 7px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border: 2px solid rgb(53, 176, 230);
+    outline: 0px;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px rgb(73, 57, 57);  
+}
+button:hover {
+    background-color: rgb(53, 176, 230);
+    color: white  
+}
+select:hover{
+  background-color: rgb(53, 176, 230);
+  color: white  
+}
+select{
+  border-radius: 20px;
+}
+#upload {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.result {
+  color: rgb(90, 226, 90);
+}
+/* #myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #04AA6D;
+  text-align: center; /* To center it horizontally (if you want) 
+  line-height: 30px; /* To center it vertically 
+  color: white;
+}
+*/
+</style>
+<body background="https://www.adanipower.com/-/media/Project/Power/AboutUs/AboutUs3.jpg?la=en&hash=F5661E3D5CCF37C5D9F56E03E2ED8F7E" >
+<h1>DGR</h1>
+<form id="form1" class="card" action="/upload" method="POST" enctype="multipart/form-data">
+  <div class="box">
+    <label for="dgr">Upload Report : </label>
+  <label id="upload" for="image">
+    <input type='file' name="file" id="image" style="display:none;"/>
+    <img src="https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" height="50px" width="50px"/>
+  </label>
+  </br>
+  <button id="fsub" type="submit">Submit </button>
+  <div class='result'>{{name}}</div>
+</div>
+</form>
+</br>
+<form id="form2" class='card' action="/result" method="GET">
+<div class="box" id="box2">
+<label for="dgr">Result : </label>
+<select id="type" name="plant">
+  <option value="Hybrid360">Hybrid360</option>
+  <option value="AEML-350 MW">AEML-350 MW</option> 
+  <option value="AP350">AP350</option>
+  <option value="Hapasar 300MW">Hapasar 300MW</option>
+  <option value="Hybrid-2A">Hybrid-2A</option>
+  <option value="Hybrid-2B">Hybrid-2B</option>
+  <option value="RJ Pokharan">RJ Pokharan</option>
+  <option value="AEML-250 MW">AEML-250 MW</option>
+  <option value="AGETL">AGETL</option>
+  <option value="KSPL">KSPL</option>
+  <option value="KA200">KA200</option>
+  <option value="Rawara">Rawara</option>
+</select>
+<select id="type" name="resultype">
+  <option value="IrrActual">Irradiation Actual</option>
+  <option value="IrrMatch">Irradiation Match</option>
+  <option value="NetExpActual">Net Export Actual</option>
+  <option value="NetExpMatch">Net Export Match</option>
+  <option value="CufActual">CufActual </option>
+  <option value="CufMatch">CufMatch </option>
+  <option value="PRActual">PRActual</option>
+  <option value="PRMatch">PRMatch</option>
+  <option value="Plant Code">Plant Code</option>
+  <option value="Location">Location</option>
+  <option value="Capacity">Capacity</option>
+  <option value="PA">Plant Availability</option>
+  <option value="GA">Grid Availability</option>
+  <option value="IrrActualAverage">Irradiation Average</option>
+  <option value="NetExpAverage">Net Export Average</option> 
+</select>
+</br>
+<button id="rsub" type='submit' onclick="move()" value='submit'> Check </button>
+<div class="result"> {{ result }} </div>
+<!--<div id="myProgress">
+  <div id="myBar">{{percent}}</div>
+</div> -->
+</div>
+</form>
+<!--<script>
+  var i = 0;
+  function move() {
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("myBar");
+      var width = 10;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+          elem.innerHTML = width  + "%";
+        }
+      }
+    }
+  }
+  </script> -->
+</body>
+</html>
